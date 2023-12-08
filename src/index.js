@@ -18,7 +18,7 @@ const server = createServer((request, response) => {
   }
 
   response.status = 200;
-  response.statusMessage = "ok";
+  response.statusCode = "ok";
   (response.header = "Content-Type"), "text/plain";
   response.write("Hello World");
   response.end();
