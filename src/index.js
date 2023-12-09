@@ -1,7 +1,7 @@
 //import { createServer } from "http";
 //import { getUsers } from "./modules/users";
 const http = require('http')
-const getUsers = require('./modules/users')
+const getUsers = require('./modules/users.js')
 
 /*const url = new URL(request.url, "http://127.0.0.1");
 console.log(url);
