@@ -1,5 +1,5 @@
 import { createServer } from "http";
-import getUsers from "./modules/users";
+import { getUsers } from "./modules/users";
 
 const url = new URL(request.url, "http://127.0.0.1");
 console.log(url);
