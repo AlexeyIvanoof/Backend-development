@@ -1,8 +1,10 @@
-import { readFileSync } from "fs";
-import { join } from "path";
+//import { readFileSync } from "fs";
+//import { join } from "path";
+const fs = require('fs')
+const path = require('path')
 
-export const getUsers = () => {
-  const filePath = join(__dirname, "../data/users.json");
-  return readFileSync(filePath);
+const getUsers = () => {
+  const filePath = path.join(__dirname, "../data/users.json");
+  return fs.readFileSync(filePath);
 };
-
+module.exports = getUsers;
