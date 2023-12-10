@@ -15,7 +15,7 @@ const server = http.createServer((request, response) => {
   const url = new URL(request.url, hostname);
   const userName = url.searchParams.get("name");
 
-  if (userName) {
+  if (request.url === '/hello=name') {
     response.statusCode = 200;
     response.statusMessage = "ok";
     response.setHeader("Content-Type", "text/plain");
@@ -25,7 +25,7 @@ const server = http.createServer((request, response) => {
   };
 
  switch (request.url) {
-    case "/?users":
+    case "/users":
       response.statusCode = 200;
       response.statusMessage = "OK";
       response.setHeader("Content-Type", "application/json");
@@ -33,7 +33,7 @@ const server = http.createServer((request, response) => {
       response.end();
       break;
 
-case "/?name":
+case "/hello":
   response.statusCode = 400;
   response.statusMessage = "Bad Request";
   response.setHeader("Content-Type", "text/plain");
@@ -59,6 +59,6 @@ default:
 }
 })
 
-server.listen(hostname, port, () => {
-  console.log(`Сервер запущен по адресу htpp://${hostname}:${port}/`);
+server.listen(port, () => {
+  console.log(`Сервер запущен по адресу ${hostname}:${port}/`);
 });
