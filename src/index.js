@@ -12,17 +12,16 @@ const port = 3003;
 const hostname ="http://127.0.0.1";
 
 const server = http.createServer((request, response) => {
-  //const url = new URL(request.url, hostname);
-  //const userName = url.searchParams.get('hello');
-  const params = new URLSearchParams()
-  params.append('hello', 'Ivan')
+ 
+  const ipAddress = "http://127.0.0.1";
+  const url = new URL(request.url, ipAddress);
+  const userName = url.searchParams.get("hello");
 
-
-  if (request.url === '/hello=name') {
+  if (userName) {
     response.statusCode = 200;
     response.statusMessage = "ok";
     response.setHeader("Content-Type", "text/plain");
-    response.write(`Hello, my friend ${params.get("hello")}`);
+    response.write(`Hello, my friend ${userName}`);
     response.end();
     return;
   };
@@ -36,7 +35,7 @@ const server = http.createServer((request, response) => {
       response.end();
       break;
 
-case "/hello":
+case "/?hello":
   response.statusCode = 400;
   response.statusMessage = "Bad Request";
   response.setHeader("Content-Type", "text/plain");
