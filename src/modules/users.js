@@ -1,5 +1,4 @@
-//import { readFileSync } from "fs";
-//import { join } from "path";
+//Домашка 3
 const fs = require('fs')
 const path = require('path')
 
