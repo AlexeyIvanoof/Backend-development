@@ -2,6 +2,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const userRouter = require('./routes/users.js');
+const bookRouter = require ('./routes/books.js')
 const loggerOne = require('./middlewares/loggerOne.js');
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -14,7 +15,7 @@ const app = express();
 const {
 PORT = 3005,
 API_URL = "http://127.0.0.1",
-MONGO_URL = "mongodb://localhost:27017/backend",
+MONGO_URL = "mongodb://127.0.0.1:27017/backend",
 } = process.env;
 
 mongoose.connect(MONGO_URL)
@@ -41,7 +42,7 @@ app.post('/', (request, response) => {
 
 app.use(loggerOne);
 app.use(userRouter);
-
+app.use(bookRouter);
 
 
 app.listen(PORT, () => {
